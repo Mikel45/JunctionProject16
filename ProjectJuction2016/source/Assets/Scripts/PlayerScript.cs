@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 /// <summary>
 /// Player controller and behavior
@@ -10,6 +11,9 @@ public class PlayerScript : MonoBehaviour
     /// </summary>
     public Vector2 speed = new Vector2(25, 25);
 
+	public float moveForce = 5, boostMultiplier = 2;
+	Vector2 moveVec;
+
     // 1 - Store the movement
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
@@ -17,17 +21,21 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         // 2 - Retrieve axis information
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+		float inputX = CrossPlatformInputManager.GetAxis("Horizontal");//Input.GetAxis("Horizontal");
+		float inputY = CrossPlatformInputManager.GetAxis("Vertical");//Input.GetAxis("Vertical");
 
         // 3 - Movement per direction
         movement = new Vector2(
           speed.x * inputX,
           speed.y * inputY);
 
+		moveVec = new Vector2 (CrossPlatformInputManager.GetAxis ("Horizontal"),
+			CrossPlatformInputManager.GetAxis ("Vertical"))
+			* moveForce;
+
         // 5 - Shooting
-        bool shoot = Input.GetButtonDown("Fire1");
-        shoot |= Input.GetButtonDown("Fire2"); // For Mac users, ctrl + arrow is a bad idea
+		bool shoot = false;//Input.GetButtonDown("Fire1");
+		shoot |= false;//Input.GetButtonDown("Fire2"); // For Mac users, ctrl + arrow is a bad idea
 
         if (shoot)
         {
@@ -57,7 +65,8 @@ public class PlayerScript : MonoBehaviour
     {
         // 4 - Move the game object
         if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
-        rigidBodyComponent.velocity = movement;
+//        rigidBodyComponent.velocity = movement;
+		rigidBodyComponent.AddForce(moveVec);
     }
 
     void OnDestroy()

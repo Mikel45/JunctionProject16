@@ -5,78 +5,73 @@
 /// </summary>
 public class EnemyScript : MonoBehaviour
 {
-  private bool hasSpawn;
-  private MoveScript moveScript;
-  private WeaponScript[] weapons;
 
-  void Awake()
-  {
-    // Retrieve the weapon only once
-    weapons = GetComponentsInChildren<WeaponScript>();
+	public bool isNonShoot;
+	private bool hasSpawn;
+	private MoveScript moveScript;
+	private WeaponScript[] weapons;
 
-    // Retrieve scripts to disable when not spawn
-    moveScript = GetComponent<MoveScript>();
-  }
+	void Awake ()
+	{
+		// Retrieve the weapon only once
+		weapons = GetComponentsInChildren<WeaponScript> ();
 
-  void Start()
-  {
-    hasSpawn = false;
+		// Retrieve scripts to disable when not spawn
+		moveScript = GetComponent<MoveScript> ();
+	}
 
-    // Disable everything
-    // -- collider
-    GetComponent<Collider2D>().enabled = false;
-    // -- Moving
-    moveScript.enabled = false;
-    // -- Shooting
-    foreach (WeaponScript weapon in weapons)
-    {
-      weapon.enabled = false;
-    }
-  }
+	void Start ()
+	{
+		hasSpawn = false;
 
-  void Update()
-  {
-    // Check if the enemy has spawned
-    if (hasSpawn == false)
-    {
-      if (GetComponent<Renderer>().IsVisibleFrom(Camera.main))
-      {
-        Spawn();
-      }
-    }
-    else
-    {
-      // Auto-fire
-      foreach (WeaponScript weapon in weapons)
-      {
-        if (weapon != null && weapon.enabled && weapon.CanAttack)
-        {
-          weapon.Attack(true);
-          SoundEffectsHelper.Instance.MakeEnemyShotSound();
-        }
-      }
+		// Disable everything
+		// -- collider
+		GetComponent<Collider2D> ().enabled = false;
+		// -- Moving
+		moveScript.enabled = false;
+		// -- Shooting
+		foreach (WeaponScript weapon in weapons) {
+			weapon.enabled = false;
+		}
+	}
 
-      // Out of camera?
-      if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false)
-      {
-        Destroy(gameObject);
-      }
-    }
-  }
+	void Update ()
+	{
+		// Check if the enemy has spawned
+		if (hasSpawn == false) {
+			if (GetComponent<Renderer> ().IsVisibleFrom (Camera.main)) {
+				Spawn ();
+			}
+		} else {
+			if (!isNonShoot) {
+				// Auto-fire
+				foreach (WeaponScript weapon in weapons) {
+					if (weapon != null && weapon.enabled && weapon.CanAttack) {
+						weapon.Attack (true);
+						SoundEffectsHelper.Instance.MakeEnemyShotSound ();
+					}
+				}
+			}
 
-  private void Spawn()
-  {
-    hasSpawn = true;
+			// Out of camera?
+			if (GetComponent<Renderer> ().IsVisibleFrom (Camera.main) == false) {
+				Destroy (gameObject);
+			}
+		}
+	}
 
-    // Enable everything
-    // -- Collider
-    GetComponent<Collider2D>().enabled = true;
-    // -- Moving
-    moveScript.enabled = true;
-    // -- Shooting
-    foreach (WeaponScript weapon in weapons)
-    {
-      weapon.enabled = true;
-    }
-  }
+	private void Spawn ()
+	{
+		hasSpawn = true;
+
+		// Enable everything
+		// -- Collider
+		GetComponent<Collider2D> ().enabled = true;
+		// -- Moving
+		moveScript.enabled = true;
+		// -- Shooting
+		foreach (WeaponScript weapon in weapons) {
+			weapon.enabled = true;
+		}
+	}
 }
