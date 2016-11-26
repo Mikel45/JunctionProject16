@@ -1,19 +1,12 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-/// <summary>
-/// Player controller and behavior
-/// </summary>
 public class PlayerScript : MonoBehaviour
 {
-    /// <summary>
-    /// 0 - The speed of the ship
-    /// </summary>
     public Vector2 speed = new Vector2(25, 25);
 
 	public float moveForce = 5, boostMultiplier = 2;
 
-    // 1 - Store the movement
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
 
@@ -28,18 +21,15 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        // 2 - Retrieve axis information
-		float inputX = CrossPlatformInputManager.GetAxis("Horizontal");//Input.GetAxis("Horizontal");
-		float inputY = CrossPlatformInputManager.GetAxis("Vertical");//Input.GetAxis("Vertical");
+		float inputX = CrossPlatformInputManager.GetAxis("Horizontal");
+		float inputY = CrossPlatformInputManager.GetAxis("Vertical");
 
-        // 3 - Movement per direction
         movement = new Vector2(
           speed.x * inputX,
           speed.y * inputY);
 
-        // 5 - Shooting
 		bool shoot = Input.GetButtonDown("Fire1") || CrossPlatformInputManager.GetButton("Shoot");
-		shoot |= Input.GetButtonDown("Fire2"); // For Mac users, ctrl + arrow is a bad idea
+		shoot |= Input.GetButtonDown("Fire2"); 
 
         if (true)
         {
@@ -51,7 +41,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        // 6 - Make sure we are not outside the camera bounds
         var dist = (transform.position - Camera.main.transform.position).z;
         var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
         var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
@@ -67,9 +56,6 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 4 - Move the game object
-//        if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
-//        rigidBodyComponent.velocity = movement;
 		Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
 			CrossPlatformInputManager.GetAxis("Vertical"))
 			* moveForce;
@@ -79,11 +65,9 @@ public class PlayerScript : MonoBehaviour
 
     void OnDestroy()
     {
-        // Check that the player is dead, as we is also callled when closing Unity
         HealthScript playerHealth = this.GetComponent<HealthScript>();
         if (playerHealth != null && playerHealth.hp <= 0)
         {
-            // Game Over.
             var gameOver = FindObjectOfType<GameOverScript>();
             gameOver.ShowButtons();
         }
@@ -94,29 +78,24 @@ public class PlayerScript : MonoBehaviour
     {
         bool damagePlayer = false;
 
-        // Collision with enemy
         EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
         if (enemy != null)
         {
-            // Kill the enemy
             HealthScript enemyHealth = enemy.GetComponent<HealthScript>();
             if (enemyHealth != null) enemyHealth.Damage(enemyHealth.hp);
 
             damagePlayer = true;
         }
 
-        // Collision with the boss
         BossScript boss = collision.gameObject.GetComponent<BossScript>();
         if (boss != null)
         {
-            // Boss lose some hp too
             HealthScript bossHealth = boss.GetComponent<HealthScript>();
             if (bossHealth != null) bossHealth.Damage(5);
 
             damagePlayer = true;
         }
 
-        // Damage the player
         if (damagePlayer)
         {
             HealthScript playerHealth = this.GetComponent<HealthScript>();

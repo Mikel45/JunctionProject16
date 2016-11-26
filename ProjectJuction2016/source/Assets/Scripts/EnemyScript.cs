@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Enemy generic behavior
-/// </summary>
 public class EnemyScript : MonoBehaviour
 {
 
@@ -13,10 +10,8 @@ public class EnemyScript : MonoBehaviour
 
 	void Awake ()
 	{
-		// Retrieve the weapon only once
 		weapons = GetComponentsInChildren<WeaponScript> ();
 
-		// Retrieve scripts to disable when not spawn
 		moveScript = GetComponent<MoveScript> ();
 	}
 
@@ -24,12 +19,8 @@ public class EnemyScript : MonoBehaviour
 	{
 		hasSpawn = false;
 
-		// Disable everything
-		// -- collider
 		GetComponent<Collider2D> ().enabled = false;
-		// -- Moving
 		moveScript.enabled = false;
-		// -- Shooting
 		foreach (WeaponScript weapon in weapons) {
 			weapon.enabled = false;
 		}
@@ -37,14 +28,12 @@ public class EnemyScript : MonoBehaviour
 
 	void Update ()
 	{
-		// Check if the enemy has spawned
 		if (hasSpawn == false) {
 			if (GetComponent<Renderer> ().IsVisibleFrom (Camera.main)) {
 				Spawn ();
 			}
 		} else {
 			if (!isNonShoot) {
-				// Auto-fire
 				foreach (WeaponScript weapon in weapons) {
 					if (weapon != null && weapon.enabled && weapon.CanAttack) {
 						weapon.Attack (true);
@@ -53,7 +42,6 @@ public class EnemyScript : MonoBehaviour
 				}
 			}
 
-			// Out of camera?
 			if (GetComponent<Renderer> ().IsVisibleFrom (Camera.main) == false) {
 				Destroy (gameObject);
 			}
@@ -64,12 +52,8 @@ public class EnemyScript : MonoBehaviour
 	{
 		hasSpawn = true;
 
-		// Enable everything
-		// -- Collider
 		GetComponent<Collider2D> ().enabled = true;
-		// -- Moving
 		moveScript.enabled = true;
-		// -- Shooting
 		foreach (WeaponScript weapon in weapons) {
 			weapon.enabled = true;
 		}
