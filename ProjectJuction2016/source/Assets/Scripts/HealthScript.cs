@@ -2,34 +2,39 @@
 
 public class HealthScript : MonoBehaviour
 {
-  public int hp = 1;
+	public int hp = 1;
 
-  public bool isEnemy = true;
+	public bool isEnemy = true;
 
-  public void Damage(int damageCount)
-  {
-    hp -= damageCount;
+	public void Damage (int damageCount)
+	{
+		hp -= damageCount;
+		if (hp <= 0) {
+			if (isEnemy) {
+				SpecialEffectsHelper.Instance.Explosion (transform.position);
+				SoundEffectsHelper.Instance.MakeExplosionSound ();
 
-    if (hp <= 0)
-    {
-      SpecialEffectsHelper.Instance.Explosion(transform.position);
-      SoundEffectsHelper.Instance.MakeExplosionSound();
+				Destroy (gameObject);
+			} else {
+				hp = 9;
+				WeaponScript[] weapons = gameObject.GetComponents<WeaponScript>();
+				foreach (WeaponScript weapon in weapons) {
+					weapon.enabled = true;
+					weapon.gameObject.SetActive (true);
+				}
+			}
+		}
+	}
 
-      Destroy(gameObject);
-    }
-  }
+	public void OnTriggerEnter2D (Collider2D otherCollider)
+	{
+		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript> ();
+		if (shot != null) {
+			if (shot.isEnemyShot != isEnemy) {
+				Damage (shot.damage);
 
-  void OnTriggerEnter2D(Collider2D otherCollider)
-  {
-    ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
-    if (shot != null)
-    {
-      if (shot.isEnemyShot != isEnemy)
-      {
-        Damage(shot.damage);
-
-        Destroy(shot.gameObject);
-      }
-    }
-  }
+				Destroy (shot.gameObject);
+			}
+		}
+	}
 }

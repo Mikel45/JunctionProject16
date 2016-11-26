@@ -28,13 +28,13 @@ public class PlayerScript : MonoBehaviour
           speed.x * inputX,
           speed.y * inputY);
 
-		bool shoot = Input.GetButtonDown("Fire1") || CrossPlatformInputManager.GetButton("Shoot");
-		shoot |= Input.GetButtonDown("Fire2"); 
+		//bool shoot = Input.GetButtonDown("Fire1") || CrossPlatformInputManager.GetButton("Shoot");
+		//shoot |= Input.GetButtonDown("Fire2"); 
 
         if (true)
         {
             WeaponScript weapon = GetComponent<WeaponScript>();
-            if (weapon != null && weapon.CanAttack)
+			if (weapon != null)// && weapon.CanAttack)
             {
                 weapon.Attack(false);
                 SoundEffectsHelper.Instance.MakePlayerShotSound();
