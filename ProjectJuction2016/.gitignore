@@ -19,6 +19,8 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+EditorBuildSettings.asset
+
  
 # ============ #
 # OS generated #
