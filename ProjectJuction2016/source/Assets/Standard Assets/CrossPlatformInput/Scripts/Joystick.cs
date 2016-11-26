@@ -102,7 +102,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
-		public void OnPointerDown(PointerEventData data) { }
+		public void OnPointerDown(PointerEventData data) { 
+			Debug.Log ("OnPointerDown" + data);}
 
 		void OnDisable()
 		{

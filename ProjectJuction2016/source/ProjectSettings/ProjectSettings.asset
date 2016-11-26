@@ -6,12 +6,12 @@ PlayerSettings:
   serializedVersion: 8
   productGUID: 05ee2e94559e5fb40a9ff5e0f45bb2cf
   AndroidProfiler: 0
-  defaultScreenOrientation: 0
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Pixelnest Studio
-  productName: A 2D game Unity tutorial
+  companyName: Frozen Picnic
+  productName: JunctionG
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenStyle: 0
@@ -39,7 +39,7 @@ PlayerSettings:
   allowedAutorotateToLandscapeLeft: 1
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
-  disableDepthAndStencilBuffers: 0
+  disableDepthAndStencilBuffers: 1
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
   runInBackground: 0
@@ -96,7 +96,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: com.frozenpicnic.junctiong
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -185,7 +185,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 7da45fcc075f39e489542a5cf3846a30, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []

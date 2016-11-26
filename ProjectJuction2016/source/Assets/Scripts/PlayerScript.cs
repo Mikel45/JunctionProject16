@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
 
+	private WeaponScript weapon;
+
 	Rigidbody2D myBody;
 
 	void Start ()
@@ -36,10 +38,10 @@ public class PlayerScript : MonoBehaviour
           speed.y * inputY);
 
         // 5 - Shooting
-		bool shoot = false;//Input.GetButtonDown("Fire1");
-		shoot |= false;//Input.GetButtonDown("Fire2"); // For Mac users, ctrl + arrow is a bad idea
+		bool shoot = Input.GetButtonDown("Fire1") || CrossPlatformInputManager.GetButton("Shoot");
+		shoot |= Input.GetButtonDown("Fire2"); // For Mac users, ctrl + arrow is a bad idea
 
-        if (shoot)
+        if (true)
         {
             WeaponScript weapon = GetComponent<WeaponScript>();
             if (weapon != null && weapon.CanAttack)
