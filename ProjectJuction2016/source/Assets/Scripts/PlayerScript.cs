@@ -31,15 +31,15 @@ public class PlayerScript : MonoBehaviour
 		//bool shoot = Input.GetButtonDown("Fire1") || CrossPlatformInputManager.GetButton("Shoot");
 		//shoot |= Input.GetButtonDown("Fire2"); 
 
-        if (true)
-        {
-            WeaponScript weapon = GetComponent<WeaponScript>();
-			if (weapon != null)// && weapon.CanAttack)
-            {
-                weapon.Attack(false);
-                SoundEffectsHelper.Instance.MakePlayerShotSound();
-            }
-        }
+		if (true) {
+			WeaponScript[] weapons = GetComponents<WeaponScript> ();
+			if (weapons != null)// && weapon.CanAttack)
+				foreach (WeaponScript weapon in weapons) {
+					if(!weapon.CanAttack) continue;
+					weapon.Attack (false);
+					SoundEffectsHelper.Instance.MakePlayerShotSound ();
+				}
+		}
 
         var dist = (transform.position - Camera.main.transform.position).z;
         var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;

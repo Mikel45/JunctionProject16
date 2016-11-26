@@ -33,7 +33,7 @@ public class GameOverScript : MonoBehaviour
         Application.LoadLevel("Menu");
     }
 
-    public void RestartGame()
+	public static void RestartGame()
     {
         Application.LoadLevel("Stage1");
     }

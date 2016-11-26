@@ -19,8 +19,12 @@ public class HealthScript : MonoBehaviour
 				hp = 9;
 				WeaponScript[] weapons = gameObject.GetComponents<WeaponScript>();
 				foreach (WeaponScript weapon in weapons) {
+					if (weapon.enabled != false)
+						continue;
 					weapon.enabled = true;
 					weapon.gameObject.SetActive (true);
+//					GameOverScript.RestartGame ();
+					return;
 				}
 			}
 		}

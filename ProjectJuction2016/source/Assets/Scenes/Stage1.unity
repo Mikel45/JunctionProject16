@@ -1826,7 +1826,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
       propertyPath: hp
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
       propertyPath: boostMultiplier
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1906537548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76e6d5ebdd0ac7c4faaa5fa757664904, type: 3}
   m_Name: 
