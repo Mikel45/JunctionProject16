@@ -12,11 +12,17 @@ public class PlayerScript : MonoBehaviour
     public Vector2 speed = new Vector2(25, 25);
 
 	public float moveForce = 5, boostMultiplier = 2;
-	Vector2 moveVec;
 
     // 1 - Store the movement
     private Vector2 movement;
     private Rigidbody2D rigidBodyComponent;
+
+	Rigidbody2D myBody;
+
+	void Start ()
+	{
+		myBody = this.GetComponent<Rigidbody2D>();
+	}
 
     void Update()
     {
@@ -28,10 +34,6 @@ public class PlayerScript : MonoBehaviour
         movement = new Vector2(
           speed.x * inputX,
           speed.y * inputY);
-
-		moveVec = new Vector2 (CrossPlatformInputManager.GetAxis ("Horizontal"),
-			CrossPlatformInputManager.GetAxis ("Vertical"))
-			* moveForce;
 
         // 5 - Shooting
 		bool shoot = false;//Input.GetButtonDown("Fire1");
@@ -64,9 +66,13 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         // 4 - Move the game object
-        if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
+//        if (rigidBodyComponent == null) rigidBodyComponent = GetComponent<Rigidbody2D>();
 //        rigidBodyComponent.velocity = movement;
-		rigidBodyComponent.AddForce(moveVec);
+		Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
+			CrossPlatformInputManager.GetAxis("Vertical"))
+			* moveForce;
+		myBody.velocity = moveVec;
+		myBody.AddForce(moveVec * 5);
     }
 
     void OnDestroy()
