@@ -3,21 +3,15 @@ using System.Collections;
 
 public class MoovieScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-        StartCoroutine(PlayMovie());
-        }
+        Handheld.PlayFullScreenMovie("mp4test.mp4", Color.blue, FullScreenMovieControlMode.CancelOnInput);
+        Application.LoadLevel("GameScene");
 
-        protected IEnumerator PlayMovie()
-        {
 
-            Handheld.PlayFullScreenMovie("Movie.mp4", Color.blue, FullScreenMovieControlMode.Hidden);
-
-            yield return new WaitForSeconds(1.0f);
-
-            Application.LoadLevel("GameScene");
-        }
+    }
+      
 
 
 
