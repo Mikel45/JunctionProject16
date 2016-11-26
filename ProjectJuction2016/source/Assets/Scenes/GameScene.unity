@@ -198,7 +198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_Name
-      value: Platform2
+      value: red22
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_LocalScale.x
@@ -458,7 +458,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
       propertyPath: m_Name
-      value: Platform1
+      value: red1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
       propertyPath: m_LocalScale.x
@@ -1082,7 +1082,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_Name
-      value: Platform2 (1)
+      value: red2
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_SortingOrder
@@ -1367,18 +1367,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.20026295
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.29180166
-      objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
-      propertyPath: m_SortingOrder
-      value: -10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
   m_IsPrefabParent: 0
@@ -1431,7 +1419,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
       propertyPath: m_Name
-      value: Platform1 (1)
+      value: red1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: f8871fc5867b3b84d9dcd52b20df6145, type: 2}
       propertyPath: m_SortingOrder
@@ -1776,7 +1764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_Name
-      value: Platform2 (2)
+      value: red2
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: e556a03872d278a41943638f98618501, type: 2}
       propertyPath: m_SortingOrder
@@ -2538,8 +2526,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 640, y: 400}
-  m_SizeDelta: {x: 1280, y: 800}
+  m_AnchoredPosition: {x: 336.5, y: 159.5}
+  m_SizeDelta: {x: 673, y: 319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1979355476
 GameObject:
