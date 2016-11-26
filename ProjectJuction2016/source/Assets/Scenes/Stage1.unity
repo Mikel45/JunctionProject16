@@ -600,28 +600,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4000012394646570, guid: 2f54ac07152e4e5428604031470d7db9, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012394646570, guid: 2f54ac07152e4e5428604031470d7db9, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012637349676, guid: 2f54ac07152e4e5428604031470d7db9, type: 2}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013551007726, guid: 2f54ac07152e4e5428604031470d7db9,
-        type: 2}
-      propertyPath: speed.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013551007726, guid: 2f54ac07152e4e5428604031470d7db9,
-        type: 2}
-      propertyPath: speed.y
-      value: 2.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f54ac07152e4e5428604031470d7db9, type: 2}
   m_IsPrefabParent: 0
@@ -726,10 +704,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1968615378}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.16000001, y: 0.2}
-  m_AnchorMax: {x: 0.16000001, y: 0.2}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 200}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803737446
 MonoBehaviour:
@@ -2496,8 +2474,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 675, y: 290.5}
-  m_SizeDelta: {x: 1350, y: 581}
+  m_AnchoredPosition: {x: 320, y: 240}
+  m_SizeDelta: {x: 640, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1979355476
 GameObject:
