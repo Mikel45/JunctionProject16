@@ -1842,13 +1842,33 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
       propertyPath: correctionY
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f48ddaee1b4c2264194b724fd0cb83aa,
         type: 3}
+    - target: {fileID: 400000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
+      propertyPath: m_Size.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
+      propertyPath: m_Offset.y
+      value: -0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1efc62f840d0b1b43983c1be59125249, type: 2}
   m_IsPrefabParent: 0
@@ -2518,8 +2538,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 683, y: 298.5}
-  m_SizeDelta: {x: 1366, y: 597}
+  m_AnchoredPosition: {x: 640, y: 400}
+  m_SizeDelta: {x: 1280, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1979355476
 GameObject:
