@@ -84,7 +84,7 @@ public class ScrollingScript : MonoBehaviour
       var last = backgroundPart.Last();
 
       repeatableSize = new Vector2(
-        Mathf.Abs(last.position.x - first.position.x),
+        Mathf.Abs(last.position.x - first.position.x - 30),
         Mathf.Abs(last.position.y - first.position.y)
         );
     }
