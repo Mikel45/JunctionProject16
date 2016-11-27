@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class HealthScript : MonoBehaviour
 
 	public bool isEnemy = true;
 	public bool isBoss = false;
-	public GUIText text = null;
+	public Text text = null;
 
 	public void Damage (int damageCount)
 	{
