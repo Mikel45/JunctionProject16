@@ -6,6 +6,7 @@ public class HealthScript : MonoBehaviour
 
 	public bool isEnemy = true;
 	public bool isBoss = false;
+	public GameObject text = null;
 
 	public void Damage (int damageCount)
 	{
@@ -17,7 +18,8 @@ public class HealthScript : MonoBehaviour
 
 				Destroy (gameObject);
 				if (isBoss) {
-					
+					text.SetActive (true);
+					Time.timeScale = 0;
 				}
 			} else {
 				hp = 9;
