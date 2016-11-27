@@ -21,8 +21,10 @@ public class HealthScript : MonoBehaviour
 				if (isBoss) {
 					text.enabled = true;
 					text.gameObject.SetActive(true);
-					Time.timeScale = 0;
-				}
+                    //Time.timeScale = 0;
+                    new WaitForSeconds(1.0f);
+                    Application.Quit();
+                }
 			} else {
 				hp = 9;
 				WeaponScript[] weapons = gameObject.GetComponents<WeaponScript>();
