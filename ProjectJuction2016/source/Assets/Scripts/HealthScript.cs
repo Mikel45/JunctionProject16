@@ -5,6 +5,7 @@ public class HealthScript : MonoBehaviour
 	public int hp = 1;
 
 	public bool isEnemy = true;
+	public bool isBoss = false;
 
 	public void Damage (int damageCount)
 	{
@@ -15,6 +16,9 @@ public class HealthScript : MonoBehaviour
 				SoundEffectsHelper.Instance.MakeExplosionSound ();
 
 				Destroy (gameObject);
+				if (isBoss) {
+					
+				}
 			} else {
 				hp = 9;
 				WeaponScript[] weapons = gameObject.GetComponents<WeaponScript>();
