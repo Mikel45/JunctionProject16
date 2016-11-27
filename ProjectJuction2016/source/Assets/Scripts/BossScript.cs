@@ -126,7 +126,7 @@ public class BossScript : MonoBehaviour
         aiCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
         isAttacking = false;
 
-        animator.SetTrigger("Hit");
+        
       }
     }
   }
